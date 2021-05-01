@@ -11,11 +11,13 @@ import (
 	"net/http"
 )
 
+//Colorizer main struct for working with colorizer
 type Colorizer struct {
 	apiKey string
 	client *http.Client
 }
 
+//New simple factory function,you can specify http client
 func New(apiKey string, client *http.Client) Colorizer {
 	if client == nil {
 		client = http.DefaultClient
@@ -26,6 +28,7 @@ func New(apiKey string, client *http.Client) Colorizer {
 	}
 }
 
+// Colorize method do the job
 func (c *Colorizer) Colorize(b []byte) ([]byte, error) {
 	if c.apiKey == "" {
 		return nil, errors.New("empty apiKey")

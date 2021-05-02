@@ -39,6 +39,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v1
 
+      - name: Golang Formatter
+        uses: sladyn98/auto-go-format@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Unit tests.
         run: make test
 

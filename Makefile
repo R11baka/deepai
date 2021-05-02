@@ -1,16 +1,22 @@
 .PHONY: lint vet test help
+.DEFAULT_GOAL := help
 
-build: ## build main.go in cmd folder
+help: Makefile
+	@echo Choose a command to run
+	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'
+
+## build: main.go in cmd folder
+build:
 	@go build cmd/main.go
 
-lint: ## Lint Golang files
+## lint: Golang files
+lint:
 	@golint ./
 
-vet: ## Run go vet
+## vet: run go vet
+vet:
 	@go vet ./
 
-test: ## Run unittests
+## test: run unittests
+test: 
 	@go test ./test
-
-help: ## Display this help screen
-	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

@@ -1,7 +1,7 @@
 package test
 
 import "testing"
-import "deepai"
+import "github.com/R11baka/deepai"
 
 func TestWithEmptyKey(t *testing.T) {
 	dp := deepai.New("", nil)

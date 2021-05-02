@@ -1,8 +1,8 @@
 package main
 
 import (
-	"deepai"
 	"fmt"
+	"github.com/R11baka/deepai"
 	"io/ioutil"
 	"os"
 )

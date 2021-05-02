@@ -1,4 +1,7 @@
-.PHONY: lint vet test
+.PHONY: lint vet test help
+
+build: ## build main.go in cmd folder
+	@go build cmd/main.go
 
 lint: ## Lint Golang files
 	@golint ./

@@ -8,6 +8,14 @@ import (
 )
 
 func main() {
+	if os.Getenv("DEEP_AI_KEY") == "" {
+		fmt.Println("Set up DEEP_AI_KEY token in env variables ")
+		return
+	}
+	if len(os.Args) < 2 {
+		fmt.Println("specify path to the file")
+		return
+	}
 	dp := deepai.New(os.Getenv("DEEP_AI_KEY"), nil)
 	filePath := os.Args[1]
 	content, err := ioutil.ReadFile(filePath)

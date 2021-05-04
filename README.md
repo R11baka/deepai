@@ -1,4 +1,4 @@
-# Simple deep.ai client
+# Simple deepai.org client
 
 # Introduction
 
